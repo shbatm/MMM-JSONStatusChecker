@@ -6,7 +6,7 @@ This is a module for <a href="https://github.com/MichMich/MagicMirror">MagicMirr
 
 ## Screenshot
 
-
+![](screenshot.png)
 
 ## Installation
 
@@ -43,6 +43,7 @@ modules: [
 | `connectedKey` | *Optional* - The path to the key in the JSON response that will be checked.<br />*Default:* `user.connected`
 | `connectedKeyValue` | *Optional* - The value for which to check the `connectedKey`. The module will evaluate if `JSONResponse[connectedKey] === connectedKeyValue` to determine what status it should show.<br />*Default:* `true`
 | `connectedString`,<br />`disconnectedString` | *Optional* - The values to display if connected or disconnected, respectively<br />*Default:* `"VPN Connected"` and `"VPN Disconnected"`
+| `icon` | *Optional* - The Font Awesome icon to use (omit the `fa-`).<br />*Default:* `plug`
 
 
 ## License

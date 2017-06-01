@@ -17,6 +17,7 @@ Module.register("MMM-AirVPN", {
     connectedKeyValue: true,
     connectedString: "VPN Connected",
     disconnectedString: "VPN Disconnected",
+    icon: "plug",
   },
 
   requiresVersion: "2.1.0", // Required version of MagicMirror
@@ -46,9 +47,9 @@ Module.register("MMM-AirVPN", {
     // If this.dataRequest is not empty
     if (this.dataRequest) {
       if (this.connected) {
-        wrapper.innerHTML = '<i class="fa fa-plug" aria-hidden="true" style="color:green;"></i>&nbsp;&nbsp;' + this.config.connectedString;
+        wrapper.innerHTML = '<i class="fa fa-'+this.config.icon+'" aria-hidden="true" style="color:green;"></i>&nbsp;&nbsp;' + this.config.connectedString;
       } else {
-        wrapper.innerHTML = '<i class="fa fa-plug" aria-hidden="true" style="color:red;"></i>&nbsp;&nbsp;' + this.config.disconnectedString;
+        wrapper.innerHTML = '<i class="fa fa-'+this.config.icon+'" aria-hidden="true" style="color:red;"></i>&nbsp;&nbsp;' + this.config.disconnectedString;
         this.sendNotification("SHOW_ALERT", {
           type: "notification",
           title: "Alert",
