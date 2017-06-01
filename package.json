@@ -1,0 +1,35 @@
+{
+  "name": "MMM-AirVPN",
+  "version": "1.0.0",
+  "description": "Module to show status of AirVPN connection",
+  "main": "MMM-AirVPN.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shbatm/MMM-AirVPN.git"
+  },
+  "keywords": [
+    "MagicMirror",
+    "Fire Stick",
+    "remote control",
+    "Keyboard"
+  ],
+  "author": "shbatm",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shbatm/MMM-AirVPN/issues"
+  },
+  "homepage": "https://github.com/shbatm/MMM-AirVPN#readme",
+  "dependencies": {
+    "pm2": "^2.4.0"
+  },
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-eslint": "latest",
+    "grunt-jsonlint": "latest",
+    "grunt-markdownlint": "^1.0.13",
+    "grunt-stylelint": "latest",
+    "grunt-yamllint": "latest",
+    "stylelint-config-standard": "latest",
+    "time-grunt": "latest"
+  }
+}
