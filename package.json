@@ -1,24 +1,23 @@
 {
-  "name": "MMM-AirVPN",
+  "name": "MMM-JSONStatusChecker",
   "version": "1.0.0",
   "description": "Module to show status of AirVPN connection",
-  "main": "MMM-AirVPN.js",
+  "main": "MMM-JSONStatusChecker.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shbatm/MMM-AirVPN.git"
+    "url": "git+https://github.com/shbatm/MMM-JSONStatusChecker.git"
   },
   "keywords": [
-    "MagicMirror",
-    "Fire Stick",
-    "remote control",
-    "Keyboard"
+    "status",
+    "JSON",
+    "API",
   ],
   "author": "shbatm",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shbatm/MMM-AirVPN/issues"
+    "url": "https://github.com/shbatm/MMM-JSONStatusChecker/issues"
   },
-  "homepage": "https://github.com/shbatm/MMM-AirVPN#readme",
+  "homepage": "https://github.com/shbatm/MMM-JSONStatusChecker#readme",
   "dependencies": {
     "pm2": "^2.4.0"
   },
