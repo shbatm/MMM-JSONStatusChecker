@@ -12,6 +12,7 @@
 
 var NodeHelper = require("node_helper");
 var request = require('request');
+require('log-timestamp')(function() { return '['+new Date().toLocaleTimeString()+'] %s'; });
 
 module.exports = NodeHelper.create({
 	start: function() {
@@ -20,6 +21,7 @@ module.exports = NodeHelper.create({
 	},
 
 	getData: function(name) {
+		console.log("Getting data for "+name);
 		var self = this;
 		
 		var apiUrl = this.config[name].urlApi.replace("{{APIKEY}}",this.config[name].apiKey);
@@ -32,14 +34,13 @@ module.exports = NodeHelper.create({
 			if (!error && response.statusCode == 200) {
 				self.sendSocketNotification("DATA_" + this.callerName, body );
 			} else if (response.statusCode === 401) {
-          		self.sendSocketNotification("DATA_ERROR",error);
+          		self.sendSocketNotification("DATA_ERROR_" + this.callerName, error);
           		console.error(self.name, error);
         	} else {
           		console.error(self.name, "Could not load data.");
         	}
 		}.bind({callerName:name})
 		);
-
 		setTimeout(function() { self.getData(name); }, this.config[name].updateInterval);
 	},
 

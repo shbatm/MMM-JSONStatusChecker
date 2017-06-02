@@ -10,7 +10,7 @@
   "keywords": [
     "status",
     "JSON",
-    "API",
+    "API"
   ],
   "author": "shbatm",
   "license": "MIT",
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/shbatm/MMM-JSONStatusChecker#readme",
   "dependencies": {
+    "log-timestamp": "^0.1.2",
     "pm2": "^2.4.0"
   },
   "devDependencies": {
