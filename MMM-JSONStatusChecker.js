@@ -89,7 +89,6 @@ Module.register("MMM-JSONStatusChecker", {
             }
             if (icon) { wrapper.appendChild(icon); }
             wrapper.appendChild(txt);
-            console.info(txt,icon);
         }
         return wrapper;
     },
