@@ -9,19 +9,19 @@
 
 Module.register("MMM-JSONStatusChecker", {
     defaults: {
-    name: "JSONUpdater",
-    updateInterval: 600000,
-    apiKey: "",
-    urlApi: "",
-    keyToCheck: "user.connected",
-    keyValue: true,
-    trueString: "VPN Connected",
-    falseString: "VPN Disconnected",
-    icon: "plug",
-    trueClass: "",
-    falseClass: "",
-    showTrueAlert: false,
-    showFalseAlert: true,
+        name: "JSONUpdater",
+        updateInterval: 600000,
+        apiKey: "",
+        urlApi: "",
+        keyToCheck: "user.connected",
+        keyValue: true,
+        trueString: "VPN Connected",
+        falseString: "VPN Disconnected",
+        icon: "plug",
+        trueClass: "",
+        falseClass: "",
+        showTrueAlert: false,
+        showFalseAlert: true,
     },
 
     requiresVersion: "2.1.0", // Required version of MagicMirror
@@ -67,7 +67,7 @@ Module.register("MMM-JSONStatusChecker", {
             if (this.trueResult) {
                 if (icon) { icon.style.cssText="color:green;"; }
                 txt.innerHTML = "&nbsp;&nbsp;" + this.config.trueString;
-                txt.className = this.config.trueClass;
+                wrapper.className = this.config.trueClass;
                 if (this.config.showTrueAlert && this.resultChanged) {
                     this.sendNotification("SHOW_ALERT", {
                     type: "notification",
@@ -78,7 +78,7 @@ Module.register("MMM-JSONStatusChecker", {
             } else {
             if (icon) { icon.style.cssText="color:red;"; }
                 txt.innerHTML = "&nbsp;&nbsp;" + this.config.falseString;
-                txt.className = this.config.falseClass;
+                wrapper.className = this.config.falseClass;
                 if (this.config.showFalseAlert && this.resultChanged) {
                     this.sendNotification("SHOW_ALERT", {
                     type: "notification",

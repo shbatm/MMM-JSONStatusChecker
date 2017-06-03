@@ -6,7 +6,7 @@ This is a module for <a href="https://github.com/MichMich/MagicMirror">MagicMirr
 
 Multiple instances of the module can be used to call different URLs/APIs using the same background helper. Each instance has it's own configuration and refresh time.
 
-### Practical Example:
+### Example:
 
 The AirVPN service provides an API which can be called to check service status and if a user is connected or not from an external source.  This module was originally created to periodically verify that a NAS was still connected to the VPN. 
 
@@ -57,6 +57,55 @@ modules: [
 | `showTrueAlert` | *Optional* - Show an alert when the query returns a `true` value.<br />*Default:* `false` (e.g. no alert is shown).
 | `showFalseAlert` | *Optional* - Show an alert when the query returns a `false` value.<br />*Default:* `true` (e.g. alert is shown).
 
+## Example Configuration - Check SABnzbd Status
+```
+{
+module: "MMM-JSONStatusChecker",
+position: "bottom_left", // This can be any of the regions.
+header: "SABnzbd Download Status",
+config: {
+    // See 'Configuration options' for more information.
+    name: "SABnzbd",
+    updateInterval: 60000,
+    apiKey: "<your api key>",
+    urlApi: "http://<server>:<port>/sabnzbd/api?output=json&apikey={{APIKEY}}&mode=queue&limit=0",
+    keyToCheck: "queue.status",
+    keyValue: "Downloading",
+    trueString: "Downloading",
+    falseString: "Idle",
+    icon: "download",
+    trueClass: "small",
+    falseClass: "dimmed small",
+    showTrueAlert: false,
+    showFalseAlert: false,
+}
+},
+{
+module: "MMM-JSONStatusChecker",
+position: "bottom_left", // This can be any of the regions.
+header: "SABnzbd History",
+config: {
+    // See 'Configuration options' for more information.
+    name: "SABnzbd",
+    updateInterval: 60000,
+    apiKey: "<your api key>",
+    urlApi: "http://<server>:<port>/sabnzbd/api?output=json&apikey={{APIKEY}}&mode=history&failed_only=1",
+    keyToCheck: "history.noofslots",
+    keyValue: 0,
+    trueString: "All Downloads Succeeded",
+    falseString: "Failed Downloads in History",
+    icon: "history",
+    trueClass: "dimmed small",
+    falseClass: "small",
+    showTrueAlert: false,
+    showFalseAlert: true,
+}
+}, 
+```
+
+### Screenshot for Above Example
+
+![](screenshot2.png)
 
 ## License
 
