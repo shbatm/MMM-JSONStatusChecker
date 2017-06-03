@@ -2,9 +2,15 @@
 
 This is a module for <a href="https://github.com/MichMich/MagicMirror">MagicMirror</a>.
 
-`MMM-JSONStatusChecker` will check and display a "true / false" status based on the results of a value in an API call which returns a JSON element.  It can  be used to call any URL and evaluate a JSON response to show a True/False status. For example, this module was originally constructed to periodically check that a NAS device was connected to the VPN by calling the VPN service's API. 
+`MMM-JSONStatusChecker` will periodically call a URL and display a "true / false" (or "connected / disconnected) status based on the results of a value in a JSON response from the API call.  
 
-## Screenshot
+Multiple instances of the module can be used to call different URLs/APIs using the same background helper. Each instance has it's own configuration and refresh time.
+
+### Practical Example:
+
+The AirVPN service provides an API which can be called to check service status and if a user is connected or not from an external source.  This module was originally created to periodically verify that a NAS was still connected to the VPN. 
+
+### Screenshot
 
 ![](screenshot.png)
 
