@@ -21,7 +21,7 @@ module.exports = NodeHelper.create({
 	},
 
 	getData: function(name) {
-		console.log("Getting data for "+name);
+		// console.log("Getting data for "+name);
 		var self = this;
 		
 		var apiUrl = this.config[name].urlApi.replace("{{APIKEY}}",this.config[name].apiKey);
@@ -30,7 +30,7 @@ module.exports = NodeHelper.create({
 			url: apiUrl,
 			method: 'GET',
 		}, function (error, response, body) {
-			console.log("Received response for "+this.callerName);
+			// console.log("Received response for "+this.callerName);
 			if (!error && response.statusCode == 200) {
 				self.sendSocketNotification("DATA_" + this.callerName, body );
 			} else if (response.statusCode === 401) {
