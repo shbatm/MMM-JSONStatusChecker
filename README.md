@@ -65,7 +65,7 @@ position: "bottom_left", // This can be any of the regions.
 header: "SABnzbd Download Status",
 config: {
     // See 'Configuration options' for more information.
-    name: "SABnzbd",
+    name: "SABnzbd_status",
     updateInterval: 60000,
     apiKey: "<your api key>",
     urlApi: "http://<server>:<port>/sabnzbd/api?output=json&apikey={{APIKEY}}&mode=queue&limit=0",
@@ -86,7 +86,7 @@ position: "bottom_left", // This can be any of the regions.
 header: "SABnzbd History",
 config: {
     // See 'Configuration options' for more information.
-    name: "SABnzbd",
+    name: "SABnzbd_history",
     updateInterval: 60000,
     apiKey: "<your api key>",
     urlApi: "http://<server>:<port>/sabnzbd/api?output=json&apikey={{APIKEY}}&mode=history&failed_only=1",
