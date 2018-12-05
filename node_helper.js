@@ -1,10 +1,6 @@
 /* Magic Mirror
  * Node Helper: MMM-JSONStatusChecker
  *
- * NOTE: Requires isy-js, but do not attempt to pass this.deviceList or this.variableList via socket.
- * The prototypes self-reference the isy variable and this creates circular references which will 
- * cause a stack limit exception when passed to the main Module code via WebSocket.
- *
  * By shbatm
  * MIT Licensed.
  */
@@ -25,21 +21,16 @@ module.exports = NodeHelper.create({
 		
 		var apiUrl = this.config[name].urlApi.replace("{{APIKEY}}",this.config[name].apiKey);
 				
-		request({
-			url: apiUrl,
-			method: 'GET',
-		}, function (error, response, body) {
-			// console.log("Received response for "+this.callerName);
-			if (!error && response.statusCode == 200) {
-				self.sendSocketNotification("DATA_" + this.callerName, body );
+		request.get(apiUrl, (error, response, body) => {
+		 	if (!error && response.statusCode == 200) {
+				self.sendSocketNotification("DATA_" + name, body);
 			} else if (response.statusCode === 401) {
-          		self.sendSocketNotification("DATA_ERROR_" + this.callerName, error);
-          		console.error(self.name, error);
+          		self.sendSocketNotification("DATA_ERROR_" + name);
+          		console.warn(name, "401 Error");
         	} else {
-          		console.error(self.name, "Could not load data.");
+          		console.warn(name, "Could not load data.");
         	}
-		}.bind({callerName:name})
-		);
+		 });
 		setTimeout(function() { self.getData(name); }, this.config[name].updateInterval);
 	},
 
