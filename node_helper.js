@@ -12,7 +12,6 @@
 
 var NodeHelper = require("node_helper");
 var request = require('request');
-require('log-timestamp')(function() { return '['+new Date().toLocaleTimeString()+'] %s'; });
 
 module.exports = NodeHelper.create({
 	start: function() {
