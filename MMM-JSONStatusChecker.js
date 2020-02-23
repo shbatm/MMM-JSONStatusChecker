@@ -18,6 +18,7 @@ Module.register("MMM-JSONStatusChecker", {
         trueString: "VPN Connected",
         falseString: "VPN Disconnected",
         icon: "plug",
+        iconFalse: "",
         trueClass: "",
         falseClass: "",
         showTrueAlert: false,
@@ -76,7 +77,12 @@ Module.register("MMM-JSONStatusChecker", {
                     });
                 }
             } else {
-            if (icon) { icon.style.cssText="color:red;"; }
+            if (icon) { 
+                icon.style.cssText="color:red;";
+                if (this.config.iconFalse !== "") {
+                    icon.className = "fa fa-"+this.config.iconFalse;
+                }
+            }
                 txt.innerHTML = "&nbsp;&nbsp;" + this.config.falseString;
                 wrapper.className = this.config.falseClass;
                 if (this.config.showFalseAlert && this.resultChanged) {
