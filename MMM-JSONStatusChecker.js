@@ -117,7 +117,17 @@ Module.register("MMM-JSONStatusChecker", {
 
     resolveKey: function(path, obj) {
         return path.split('.').reduce(function(prev, curr) {
-            return prev ? prev[curr] : undefined;
+            let result = undefined;
+            let parts = curr.split("[");
+            if (parts && parts.length > 1) {
+                let x = parts[1].split("]");
+                let index = x[0];
+                result = prev[parts[0]][index];
+            }
+            else {
+                result = prev ? prev[curr] : undefined;
+            }
+            return result
         }, obj || self);
     },
 
