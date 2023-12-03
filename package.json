@@ -20,7 +20,7 @@
   "homepage": "https://github.com/shbatm/MMM-JSONStatusChecker#readme",
   "dependencies": {
     "log-timestamp": "^0.1.2",
-    "pm2": "^2.4.0",
+    "pm2": "^4.4.0",
     "snyk": "^1.192.3"
   },
   "scripts": {
